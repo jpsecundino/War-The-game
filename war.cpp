@@ -7,7 +7,7 @@ struct Territorio{
 	int qtd_de_soldados;
 	int id_dono;
 
-}
+};
 
 struct Objetivo{
 	int id_objetivo;
