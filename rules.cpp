@@ -3,18 +3,26 @@
 #include <algorithm>
 #include <time.h>
 
-/**
+/*
 TODO :
-place_trops(Map* pmap, Player* player) {}
-distribute_territories() {}
+place_trops(Territory* territ, Player* player) {}
 
-**/
+*/
 
 struct Territory{
 	int territory_id;
 	int territory_soldiers_count;
 	int territory_owner_id;
 
+};
+struct Player{
+	int id;
+	string player_name;
+	Objective player_objective;
+	vector<Cards> player_cards;
+	Color player_color;
+	string player_ip;
+	int player_exchanges; 
 };
 
 struct Dices{
@@ -78,6 +86,23 @@ int attack(Territory* a,Territory* d,int soldier_at,int soldier_def) {
 		if((*d).territory_soldiers_count == 0) return 1;
 		else return 0;
 		
+}
+
+int draw_card(int valid[], int terr_per_p) {
+		int r = rand()%players.size();
+		if (valid[r] == terr_per_p) draw_card(valid,terr_per_p);
+		valid[r]++;
+		return r;
+}
+
+void distribute_territories(Game* game) {
+		
+		int valid[players.size()];
+		terr_per_p = provinces.size()/players.size();
+		for (int i = 0; i < provinces.size(); i++) {
+						provinces[i] = draw_card(valid,terr_per_p);
+				}
+		}
 }
 
 
