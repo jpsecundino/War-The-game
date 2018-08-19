@@ -1,7 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string>
- 
+#include <string>
+#include <vector>
+
+using std::string;
+using std::vector;
+
 enum GeomFig{
 	Circunf,
 	Square,
@@ -39,7 +41,7 @@ struct Cards{
 struct Player{
 	int id;
 	string player_name;
-	obj player_objective;
+	Objective player_objective;
 	vector<Cards> player_cards;
 	Color player_color;
 	string player_ip;
