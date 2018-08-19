@@ -1,19 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <algorithm>
 #include <time.h>
 
 /**
+TODO :
 place_trops(Map* pmap, Player* player) {}
-
-attack() {}
+distribute_territories() {}
 
 **/
+
+struct Territory{
+	int territory_id;
+	int territory_soldiers_count;
+	int territory_owner_id;
+
+};
 
 struct Dices{
 	int attack_dices[3];
 	int defense_dices[3];
 };
 
+//return the attack and defense dices in increasing order
 Dices Roll_dices(int num_attack, int num_defense) {
 	
 	Dices dices;
@@ -23,14 +32,54 @@ Dices Roll_dices(int num_attack, int num_defense) {
 		r = (rand()%6)+1;
 		dices.defense_dices[i] = r;
 	}
+	std::sort(dices.defense_dices,dices.defense_dices+num_defense+1);
 	
 	for (int i = 0; i < num_attack; i++) {
 		r = (rand()%6)+1;
 		dices.attack_dices[i] = r;
 	}
+	std::sort(dices.attack_dices,dices.attack_dices+num_attack+1);
 	
 	return dices;
 }
+
+//return 1 if the attack wins and the defense has no soldiers
+int attack(Territory* a,Territory* d,int soldier_at,int soldier_def) {
+	
+		if ((*a).territory_soldiers_count < soldier_at) printf("You don't have that number of soldiers to attack");
+		if ((*d).territory_soldiers_count < soldier_def) printf("You don't have that number of soldiers to defend");
+		
+		//maximum of 3 dices
+		if (soldier_at > 4) soldier_at = 3;
+		if (soldier_def > 4) soldier_def = 3; 
+		
+		
+		Dices battle;
+		
+		//1 attack, 0 defense
+		int wins[3]; 
+		
+		battle = Roll_dices(soldier_at,soldier_def);
+		
+		//compare the greater dices of the users first
+		for (int i = soldier_def-1; i >=0 ; i--) {
+				//attack wins
+				if(battle.attack_dices[i] > battle.defense_dices[i]) {
+					 wins[soldier_def - i] = 1;
+					 if ((*d).territory_soldiers_count != 0)(*d).territory_soldiers_count--;
+				 }
+				//defense wins
+				else {
+					wins[soldier_def - i] = 0;
+					(*a).territory_soldiers_count--;
+				}
+		}
+		
+		if((*d).territory_soldiers_count == 0) return 1;
+		else return 0;
+		
+}
+
 
 int main() {
 	Dices test;
@@ -38,16 +87,6 @@ int main() {
 	test = Roll_dices(2,3);
 	
 	
-	
-	for (int i = 0; i < 2; i++) {
-		printf("%d ",test.attack_dices[i]);
-	}
-	printf("\n");
-	for (int i = 0; i < 3; i++) {
-		printf("%d ",test.defense_dices[i]);
-	}
-	
-	printf("\n");
 	
 	return 0;
 }
