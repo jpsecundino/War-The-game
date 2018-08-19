@@ -2,22 +2,28 @@
 #include<stdlib.h>
 #include<string>
 
-struct Territorio{
-	int id_territorio;
-	int qtd_de_soldados;
-	int id_dono;
+struct Territory{
+	int id_territory;
+	int soldiers_count;
+	int id_owner;
 
 };
 
-struct Objetivo{
-	int id_objetivo;
-	string descricao_objetivo;
+struct Objective{
+	int id_objective;
+	string obj_descript;
+};
+ 
+enum GeomFig{
+	Circunf,
+	Square,
+	Triang,
 };
 
-struct Jogador{
+struct Player{
 	int id;
-	string nome;
-	obj objetivo;
-	vector<int> cartas;
+	string player_name;
+	obj objective;
+	vector<int> cards;
 };
 
