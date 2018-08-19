@@ -1,15 +1,18 @@
 #include "war.h"
 
+void load_map(Game & game, string map_name);
 void new_round(Game & game);
 void setup_game(Game & game);
 
 int main() {
 
+	Game game;
+
+	load_map(game, "default_map");
+
 	// TODO register and listen to sockets
 	// TODO accept clients
 	// TODO setup and start game
-
-	Game game;
 
 	Player p1, p2;
 
@@ -45,6 +48,10 @@ int main() {
 	// TODO close sockets
 
 	return 0;
+}
+
+void load_map(Game & game, string map_name) {
+	// TODO
 }
 
 void new_round(Game & game) {
