@@ -4,8 +4,10 @@
 
 int main()
 {
-    sf::Window window(sf::VideoMode(1920, 1080), "My window");
-    sf::Style::Close;
+    sf::Window window(sf::VideoMode(500, 600), "My window");
+    window.setTitle("WAR");
+    window.getPosition();
+    window.setPosition(sf::Vector2i(0, 0));
     // run the program as long as the window is open
     while (window.isOpen())
     {
