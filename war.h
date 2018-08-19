@@ -5,49 +5,53 @@ using std::string;
 using std::vector;
 
 enum GeomFig{
-	Circunf,
-	Square,
-	Triang
+	CIRCUNF,
+	SQUARE,
+	TRIANG
 };
 
-enum Color{
-	white,
-	black,
-	red,
-	blue,
-	yellow,
-	green
+enum PlayerColor {
+	WHITE,
+	BLACK,
+	RED,
+	BLUE,
+	YELLOW,
+	GREEN
 };
 
-struct Territory{
-	int territory_id;
-	int territory_soldiers_count;
-	int territory_owner_id;
-
-};
-
-struct Objective{
-	int objective_id;
-	string objective_descript;
-};
-
-struct Cards{
-	int card_id;
-	int card_territory_id;
-	GeomFig card_figure;
-	bool card_wildcard;
-
-};
-
-struct Player{
+struct Province {
 	int id;
-	string player_name;
-	Objective player_objective;
-	vector<Cards> player_cards;
-	Color player_color;
-	string player_ip;
-	int player_exchanges; 
+	int soldiers_count;
+	int owner_id;
+
 };
 
+struct Objective {
+	int id;
+	string descript;
+};
 
+struct Cards {
+	int id;
+	int province_id;
+	GeomFig figure;
+	bool wildcard;
+
+};
+
+struct Player {
+	int id;
+	string name;
+	Objective objective;
+	vector<Cards> cards;
+	PlayerColor color;
+	string ip;
+	int exchanges; 
+};
+
+struct Game {
+	vector<Player> players;
+	vector<Province> provinces;
+	int current_player;
+};
 
