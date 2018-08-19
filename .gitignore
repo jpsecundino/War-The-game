@@ -1,3 +1,5 @@
-war-server
-war-client
-
+*.o
+/war-server
+/war-client
+/cmake-build-debug
+/.idea
