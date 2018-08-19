@@ -1,7 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "rules.h"
+#include "war.h"
+
 #include <algorithm>
-#include <time.h>
+
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
 
 /*
 TODO :
@@ -14,15 +18,6 @@ struct Territory{
 	int territory_soldiers_count;
 	int territory_owner_id;
 
-};
-struct Player{
-	int id;
-	string player_name;
-	Objective player_objective;
-	vector<Cards> player_cards;
-	Color player_color;
-	string player_ip;
-	int player_exchanges; 
 };
 
 struct Dices{
