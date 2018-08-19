@@ -6,7 +6,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 640), "WAR");
    
     sf::Texture texture;
-    if (!texture.loadFromFile("map.jpg"))
+    
+    if (!texture.loadFromFile("mapa.jpg"))
         return EXIT_FAILURE;
     
     sf::Sprite sprite(texture);
