@@ -3,20 +3,21 @@
 
 #include "war.h"
 
-struct Dices{
+struct Dice{
     int attack_dices[3];
     int defense_dices[3];
 };
 
-//return the attack and defense dices in increasing order
-Dices Roll_dices(int num_attack, int num_defense);
+/** Returns the attack and defense dices in increasing order */
+Dice roll_dices(int num_attack, int num_defense);
 
-//return 1 if the attack wins and the defense has no soldiers
-int attack(Territory* a,Territory* d,int soldier_at,int soldier_def);
+/** Return 1 if the attack wins and the defense has no soldiers */
+int attack(Province* attack, Province* defense, int n_soldiers_attack, int n_soldier_defense);
 
-
+// TODO docs
 int draw_card(int valid[], int terr_per_p);
 
+// TODO docs
 void distribute_territories(Game* game);
 
 #endif
