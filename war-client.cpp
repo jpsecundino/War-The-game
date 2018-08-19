@@ -1,25 +1,51 @@
-#include "war.h"
-#include <SFML/Window.hpp>
-
-
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 int main()
 {
-    sf::Window window(sf::VideoMode(500, 600), "My window");
-    window.setTitle("WAR");
-    window.getPosition();
-    window.setPosition(sf::Vector2i(0, 0));
-    // run the program as long as the window is open
+    
+    sf::RenderWindow window(sf::VideoMode(800, 640), "WAR");
+   
+    sf::Texture texture;
+    if (!texture.loadFromFile("map.jpg"))
+        return EXIT_FAILURE;
+    
+    sf::Sprite sprite(texture);
+
+    sf::Font font;
+    if (!font.loadFromFile("FreeSans.ttf"))
+        return EXIT_FAILURE;
+ 
+
+    sf::Text text;
+
+	text.setFont(font); 
+
+	
+	text.setString("GUERRA");
+
+	
+	text.setColor(sf::Color::Red);
+
+	
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
     while (window.isOpen())
     {
-        // check all the window's events that were triggered since the last iteration of the loop
+        
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
+            
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        
+        window.clear();
+        
+       
+        window.draw(sprite);
+	window.draw(text);
+        window.display();
     }
-
-    return 0;
+    return EXIT_SUCCESS;
 }
