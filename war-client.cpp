@@ -1,5 +1,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+
 int main()
 {
     
@@ -25,7 +26,7 @@ int main()
 	text.setString("GUERRA");
 
 	
-	text.setColor(sf::Color::Red);
+	text.setFillColor(sf::Color::Red);
 
 	
 	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
@@ -48,3 +49,4 @@ int main()
     }
     return EXIT_SUCCESS;
 }
+
