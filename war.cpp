@@ -36,7 +36,6 @@ struct Cards{
 
 };
 
-
 struct Player{
 	int id;
 	string player_name;
@@ -44,6 +43,8 @@ struct Player{
 	vector<Cards> player_cards;
 	Color player_color;
 	string player_ip;
+	int player_exchanges; 
 };
+
 
 
