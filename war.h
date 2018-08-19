@@ -35,8 +35,7 @@ struct Cards{
 	int card_id;
 	int card_territory_id;
 	GeomFig card_figure;
-	bool card_wildcard; 
-	GeomFig card_figure; 
+	bool card_wildcard;
 
 };
 
