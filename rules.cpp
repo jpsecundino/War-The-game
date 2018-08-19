@@ -20,12 +20,6 @@ struct Territory{
 
 };
 
-struct Dices{
-	int attack_dices[3];
-	int defense_dices[3];
-};
-
-//return the attack and defense dices in increasing order
 Dices Roll_dices(int num_attack, int num_defense) {
 	
 	Dices dices;
