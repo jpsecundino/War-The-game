@@ -1,8 +1,11 @@
 #include "war.h"
+#include "rules.h"
+#include "map_data.h"
 
 void load_map(Game & game, string map_name);
 void new_round(Game & game);
 void setup_game(Game & game);
+int calc_new_soldiers(Player & player);
 
 int main() {
 
@@ -11,7 +14,7 @@ int main() {
 	load_map(game, "default_map");
 
 	// TODO register and listen to sockets
-	// TODO accept clients
+	// TODO accept players
 	// TODO setup and start game
 
 	Player p1, p2;
@@ -36,11 +39,17 @@ int main() {
 		for (int i = 0; i < game.players.size(); i++) {
 			Player & player = game.players[i];
 
-			// TODO receive cards
+			// TODO receive cards from player
+			
 			// TODO calc how many new soldiers
+			int new_soldiers = calc_new_soldiers(player);
+
 			// TODO receive player distribution of soldiers (and check objective)
+
 			// TODO receive player attacks (and check objective)
+
 			// TODO receive player movements (and objective)
+
 			// TODO give card to player
 		}
 	}
@@ -62,3 +71,6 @@ void setup_game(Game & game) {
 	// TODO
 }
 
+int calc_new_soldiers(Player & player) {
+	// TODO
+}

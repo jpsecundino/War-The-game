@@ -8,7 +8,7 @@ struct Dice{
     int defense_dices[3];
 };
 
-/** Returns the attack and defense dices in increasing order */
+/** Returns the attack and defense dice in increasing order */
 Dice roll_dices(int num_attack, int num_defense);
 
 /** Return 1 if the attack wins and the defense has no soldiers */
