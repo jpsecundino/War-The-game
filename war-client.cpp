@@ -41,8 +41,6 @@ int main()
         }
         
         window.clear();
-        
-       
         window.draw(sprite);
 	window.draw(text);
         window.display();
